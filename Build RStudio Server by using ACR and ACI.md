@@ -27,6 +27,13 @@ FROM rocker/rstudio-stable:devel
 EXPOSE  8787
 ```
 
+For NiFi, use below content to Dockerfile
+
+```shell script
+FROM apache/nifi:latest
+EXPOSE  8080
+```
+
 2. build the container image from the Dockerfile.
 
 ```shell script
@@ -69,6 +76,20 @@ az container create \
     --ports 8787
 ```
 
+Use below for NiFi
+
+```shell script
+az container create \
+    --resource-group learn-deploy-acr-rg \
+    --name acr-tasks \
+    --image $ACR_NAME.azurecr.io/nifi:v1 \
+    --registry-login-server $ACR_NAME.azurecr.io \
+    --ip-address Public \
+    --location uksouth \
+    --registry-username swamyacr \
+    --registry-password D4ZLODFWCcsUILUkyRg=ohhSM38jARNT \
+    --ports 8080
+```
 4. Get the IP address of the Azure container instance
 
 ```shell script
