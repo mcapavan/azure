@@ -77,7 +77,7 @@ az container show --resource-group  learn-deploy-acr-rg --name acr-tasks --query
 
 #### Open RStudio in Browser
 
-http://localhost:8787
+http://[ipAddress]:8787
 
 #### Clean up resources
 
